@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redmond Carpentry, LLC | Premium Residential Remodeling & Custom Carpentry | Monroe, CT</title>
+    <meta name="description" content="Redmond Carpentry, LLC provides exceptional residential remodeling, custom carpentry, deck construction, and architectural trim work in Monroe, Connecticut and surrounding areas. Call 203-913-7331.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: {
+                            DEFAULT: '#161616',
+                            light: '#222222',
+                            dark: '#0e0e0e'
+                        },
+                        ivory: {
+                            DEFAULT: '#F9F7F2',
+                            dark: '#EFECE6',
+                            card: '#F2EFE9'
+                        },
+                        walnut: {
+                            DEFAULT: '#795548',
+                            dark: '#5D4037',
+                            light: '#8D6E63'
+                        },
+                        bronze: {
+                            DEFAULT: '#A38867',
+                            light: '#C4A882'
+                        },
+                        forest: '#2C3E35'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Cinzel', 'Georgia', 'serif'],
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Base Styling & Custom Smooth Scroll Settings */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #161616;
+            color: #F9F7F2;
+            overflow-x: hidden;
+        }
+        
+        .font-serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #161616;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #A38867;
+        }
+
+        /* Glassmorphism effects */
+        .glass-dark {
+            background: rgba(22, 22, 22, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-light {
+            background: rgba(249, 247, 242, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        /* Interactive image hover zoom effects */
+        .img-zoom-container {
+            overflow: hidden;
+        }
+        .img-zoom-container img {
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .img-zoom-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox modal animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.97); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Active Navigation Link Indicator */
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #A38867;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-bronze selection:text-white bg-charcoal text-ivory">
+
+    <!-- ========================================== -->
+    <!-- HEADER & NAVIGATION                        -->
+    <!-- ========================================== -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 border-b border-white/10 glass-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                
+                <!-- BRAND LOGO (EXACT TRANSPARENT HORIZONTAL RC MONOGRAM RECREATION) -->
+                <a href="#home" onclick="navigateTo('home')" class="group flex items-center gap-3 focus:outline-none shrink-0" aria-label="Redmond Carpentry Home">
+                    <div class="flex items-center gap-3">
+                        <!-- RC Monogram Box -->
+                        <div class="w-10 h-10 border-2 border-ivory group-hover:border-bronze transition-colors flex items-center justify-center p-1 shrink-0">
+                            <svg viewBox="0 0 100 100" class="w-full h-full fill-ivory group-hover:fill-bronze transition-colors">
+                                <text x="50%" y="68%" text-anchor="middle" font-family="'Cinzel', serif" font-weight="700" font-size="52" letter-spacing="-2">RC</text>
+                            </svg>
+                        </div>
+                        <!-- Horizontal Typography Wordmark -->
+                        <div class="flex flex-col justify-center">
+                            <span class="font-cinzel text-base sm:text-xl font-bold tracking-[0.2em] text-ivory group-hover:text-bronze transition-colors leading-none">REDMOND</span>
+                            <span class="font-sans text-[8px] sm:text-[10px] tracking-[0.3em] text-bronze uppercase font-medium mt-1">CARPENTRY, LLC</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- DESKTOP NAVIGATION LINKS -->
+                <nav class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <button id="nav-home" onclick="navigateTo('home')" class="nav-link text-xs tracking-[0.2em] uppercase font-medium text-ivory/80 hover:text-bronze transition-colors py-1 relative active">Home</button>
+                    <button id="nav-services" onclick="navigateTo('services')" class="nav-link text-xs tracking-[0.2em] uppercase font-medium text-ivory/80 hover:text-bronze transition-colors py-1 relative">Services</button>
+                    <button id="nav-work" onclick="navigateTo('work')" class="nav-link text-xs tracking-[0.2em] uppercase font-medium text-ivory/80 hover:text-bronze transition-colors py-1 relative">Our Work</button>
+                    <button id="nav-about" onclick="navigateTo('about')" class="nav-link text-xs tracking-[0.2em] uppercase font-medium text-ivory/80 hover:text-bronze transition-colors py-1 relative">About</button>
+                    <button id="nav-contact" onclick="navigateTo('contact')" class="nav-link text-xs tracking-[0.2em] uppercase font-medium text-ivory/80 hover:text-bronze transition-colors py-1 relative">Contact</button>
+                </nav>
+
+                <!-- HEADER ACTION BUTTONS -->
+                <div class="hidden lg:flex items-center space-x-5">
+                    <a href="tel:2039137331" class="text-xs font-semibold tracking-wider text-ivory hover:text-bronze transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-bronze text-xs"></i> 203-913-7331
+                    </a>
+                    <button onclick="navigateTo('contact')" class="px-5 py-2.5 bg-bronze hover:bg-bronze-light text-charcoal-dark text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 transform hover:-translate-y-0.5 shadow-md">
+                        Request Estimate
+                    </button>
+                </div>
+
+                <!-- MOBILE MENU TOGGLE -->
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-ivory hover:text-bronze p-2 focus:outline-none" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAVIGATION MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 bg-charcoal-dark/98 z-40 hidden flex-col justify-between p-8 pt-28 transition-all duration-300">
+        <div class="flex flex-col space-y-6 text-center">
+            <button onclick="navigateTo('home'); toggleMobileMenu()" class="text-xl font-cinzel tracking-widest text-ivory hover:text-bronze py-2">HOME</button>
+            <button onclick="navigateTo('services'); toggleMobileMenu()" class="text-xl font-cinzel tracking-widest text-ivory hover:text-bronze py-2">SERVICES</button>
+            <button onclick="navigateTo('work'); toggleMobileMenu()" class="text-xl font-cinzel tracking-widest text-ivory hover:text-bronze py-2">OUR WORK</button>
+            <button onclick="navigateTo('about'); toggleMobileMenu()" class="text-xl font-cinzel tracking-widest text-ivory hover:text-bronze py-2">ABOUT</button>
+            <button onclick="navigateTo('contact'); toggleMobileMenu()" class="text-xl font-cinzel tracking-widest text-ivory hover:text-bronze py-2">CONTACT</button>
+        </div>
+        <div class="flex flex-col space-y-4 text-center border-t border-white/10 pt-6">
+            <a href="tel:2039137331" class="text-lg font-semibold text-bronze flex items-center justify-center gap-2">
+                <i class="fa-solid fa-phone"></i> +1 203-913-7331
+            </a>
+            <p class="text-xs text-ivory/60 tracking-wider">Monroe, Connecticut, USA</p>
+            <button onclick="navigateTo('contact'); toggleMobileMenu()" class="w-full py-3 bg-bronze text-charcoal-dark font-bold uppercase tracking-widest text-sm">
+                Request an Estimate
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- MAIN CONTAINER (PAGE SWITCHING VIEWS)     -->
+    <!-- ========================================== -->
+    <main id="app-content" class="min-h-screen">
+
+        <!-- =================================================================== -->
+        <!-- PAGE 1: HOME PAGE                                                  -->
+        <!-- =================================================================== -->
+        <div id="page-home" class="page-view">
+            
+            <!-- SECTION 01: IMMERSIVE HERO -->
+            <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+                <!-- Background Image & Overlay -->
+                <div class="absolute inset-0 z-0">
+                    <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/508147886_3556254854506497_1839905033559771886_n.jpg" 
+                         alt="Redmond Carpentry Architectural Deck Construction Monroe CT" 
+                         class="w-full h-full object-cover object-center filter brightness-75 scale-105 transition-transform duration-1000">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/40"></div>
+                </div>
+
+                <!-- Hero Content Box -->
+                <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
+                    <div class="inline-flex items-center gap-3 px-4 py-1.5 border border-bronze/40 bg-charcoal/60 backdrop-blur-md mb-8">
+                        <span class="w-2 h-2 rounded-full bg-bronze animate-pulse"></span>
+                        <span class="text-xs uppercase tracking-[0.25em] font-medium text-bronze">Monroe, Connecticut • Residential Remodeling</span>
+                    </div>
+
+                    <h1 class="font-serif-title text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-ivory leading-[1.08] mb-6">
+                        CRAFTED WITH PURPOSE.<br>
+                        <span class="italic font-light text-bronze-light">BUILT AROUND YOUR HOME.</span>
+                    </h1>
+
+                    <p class="max-w-2xl mx-auto text-base sm:text-lg text-ivory/80 font-light leading-relaxed mb-10 tracking-wide">
+                        Residential remodeling and custom finish carpentry across Monroe and Fairfield County, with meticulous attention to detail at every scale.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                        <button onclick="navigateTo('work')" class="w-full sm:w-auto px-8 py-4 bg-bronze hover:bg-bronze-light text-charcoal-dark font-bold text-xs uppercase tracking-[0.2em] transition-all duration-300 shadow-lg hover:shadow-bronze/20">
+                            Explore Our Work
+                        </button>
+                        <button onclick="navigateTo('contact')" class="w-full sm:w-auto px-8 py-4 border border-ivory/40 hover:border-ivory text-ivory font-medium text-xs uppercase tracking-[0.2em] backdrop-blur-sm hover:bg-white/5 transition-all duration-300">
+                            Request An Estimate
+                        </button>
+                    </div>
+
+                    <!-- Scroll Indicator (Integrated naturally into content flow to avoid absolute overlap) -->
+                    <div class="mt-14 hidden sm:flex flex-col items-center gap-2">
+                        <span class="text-[10px] uppercase tracking-[0.3em] text-ivory/50">Scroll To Explore</span>
+                        <div class="w-5 h-8 border border-ivory/30 rounded-full flex justify-center p-1">
+                            <div class="w-1 h-2 bg-bronze rounded-full animate-bounce mt-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 02: BRAND INTRODUCTION (EDITORIAL ARCHITECTURAL LAYOUT) -->
+            <section class="py-24 bg-charcoal border-b border-white/5">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                        
+                        <div class="lg:col-span-5 space-y-6">
+                            <span class="text-xs uppercase tracking-[0.3em] text-bronze font-semibold">Brand Philosophy</span>
+                            <h2 class="font-serif-title text-3xl sm:text-4xl md:text-5xl font-normal leading-tight text-ivory">
+                                Thoughtful Craftsmanship.<br>
+                                <span class="italic text-ivory/70">Meaningful Improvements.</span>
+                            </h2>
+                            <p class="text-ivory/70 text-sm sm:text-base leading-relaxed font-light">
+                                Redmond Carpentry, LLC specializes in transformational residential woodwork and custom building. From structural deck installations to fine interior trim, door upgrades, and spatial remodeling, we approach each project with structural rigor and architectural aesthetics.
+                            </p>
+                            <p class="text-ivory/70 text-sm leading-relaxed font-light">
+                                Operating out of Monroe, Connecticut, our goal is straightforward: build enduring spaces that honor the natural qualities of fine materials while enhancing how you live inside your home.
+                            </p>
+                            
+                            <div class="pt-4 flex items-center gap-8 border-t border-white/10">
+                                <div>
+                                    <div class="font-serif-title text-2xl text-bronze font-bold">100%</div>
+                                    <div class="text-[11px] uppercase tracking-wider text-ivory/60 mt-1">Dedicated Precision</div>
+                                </div>
+                                <div class="w-px h-10 bg-white/10"></div>
+                                <div>
+                                    <div class="font-serif-title text-2xl text-bronze font-bold">Monroe, CT</div>
+                                    <div class="text-[11px] uppercase tracking-wider text-ivory/60 mt-1">Local Service Area</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Editorial Image Composition -->
+                        <div class="lg:col-span-7 grid grid-cols-12 gap-4 relative">
+                            <div class="col-span-8 img-zoom-container rounded-sm overflow-hidden shadow-2xl">
+                                <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/508166415_3558691377596178_3541246282144471039_n.jpg" 
+                                     alt="Deck Frame Framing Detail Redmond Carpentry" 
+                                     class="w-full h-[380px] sm:h-[460px] object-cover">
+                            </div>
+                            <div class="col-span-4 self-end space-y-4">
+                                <div class="img-zoom-container rounded-sm overflow-hidden shadow-xl">
+                                    <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/583923975_1368934264934474_6959972689701284037_n.jpg" 
+                                         alt="Finished Decking Detail" 
+                                         class="w-full h-[180px] sm:h-[220px] object-cover">
+                                </div>
+                                <div class="bg-charcoal-light p-4 border border-white/10 text-xs text-ivory/70">
+                                    <p class="italic">"Quality is found in the hidden framing details as much as the finished surface."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 03: FEATURED PROJECTS (ASYMMETRICAL GALLERY) -->
+            <section class="py-24 bg-charcoal-dark">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-white/10 pb-8">
+                        <div>
+                            <span class="text-xs uppercase tracking-[0.3em] text-bronze font-semibold">Authentic Work</span>
+                            <h2 class="font-serif-title text-3xl sm:text-5xl text-ivory mt-2">Featured Projects</h2>
+                        </div>
+                        <button onclick="navigateTo('work')" class="mt-4 md:mt-0 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-bronze hover:text-ivory transition-colors">
+                            View All Projects <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Asymmetrical Portfolio Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                        
+                        <!-- Project 1 (Large Deck) -->
+                        <div class="md:col-span-7 group cursor-pointer" onclick="openLightbox('https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/509579782_3563267883805194_1255040392412548200_n.jpg', 'Elevated Multi-Level Custom Deck Build', 'Outdoor Structure')">
+                            <div class="img-zoom-container aspect-[16/10] bg-charcoal mb-4 relative overflow-hidden">
+                                <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/509579782_3563267883805194_1255040392412548200_n.jpg" 
+                                     alt="Custom Deck Build Redmond Carpentry" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span class="px-4 py-2 border border-ivory text-xs uppercase tracking-widest text-ivory">Inspect View</span>
+                                </div>
+                            </div>
+                            <span class="text-[11px] uppercase tracking-[0.2em] text-bronze font-medium">Deck Construction</span>
+                            <h3 class="font-serif-title text-xl text-ivory group-hover:text-bronze transition-colors mt-1">Multi-Level Outdoor Living Deck</h3>
+                        </div>
+
+                        <!-- Project 2 (Interior Finish Trim / Entryway) -->
+                        <div class="md:col-span-5 group cursor-pointer" onclick="openLightbox('https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/509317718_3566749760123673_6227464479387910447_n.jpg', 'Architectural Interior Finish Work & Custom Trim', 'Interior Carpentry')">
+                            <div class="img-zoom-container aspect-[4/5] bg-charcoal mb-4 relative overflow-hidden">
+                                <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/509317718_3566749760123673_6227464479387910447_n.jpg" 
+                                     alt="Interior Trim Work Redmond Carpentry" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span class="px-4 py-2 border border-ivory text-xs uppercase tracking-widest text-ivory">Inspect View</span>
+                                </div>
+                            </div>
+                            <span class="text-[11px] uppercase tracking-[0.2em] text-bronze font-medium">Interior Trim & Finish</span>
+                            <h3 class="font-serif-title text-xl text-ivory group-hover:text-bronze transition-colors mt-1">Custom Architectural Interior Trim</h3>
+                        </div>
+
+                        <!-- Project 3 (Window & Door Replacement) -->
+                        <div class="md:col-span-4 group cursor-pointer" onclick="openLightbox('https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/507635666_3555154001283249_2583735017365206193_n.jpg', 'Exterior Window & Door Frame Remodel', 'Doors & Windows')">
+                            <div class="img-zoom-container aspect-square bg-charcoal mb-4 relative overflow-hidden">
+                                <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/507635666_3555154001283249_2583735017365206193_n.jpg" 
+                                     alt="Door & Window Remodeling Redmond Carpentry" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span class="px-4 py-2 border border-ivory text-xs uppercase tracking-widest text-ivory">Inspect View</span>
+                                </div>
+                            </div>
+                            <span class="text-[11px] uppercase tracking-[0.2em] text-bronze font-medium">Doors & Windows</span>
+                            <h3 class="font-serif-title text-lg text-ivory group-hover:text-bronze transition-colors mt-1">Framing & Exterior Window Casing</h3>
+                        </div>
+
+                        <!-- Project 4 (Custom Wooden Stairs & Railing) -->
+                        <div class="md:col-span-8 group cursor-pointer" onclick="openLightbox('https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/510727553_3566749650123684_8728608778506380258_n.jpg', 'Custom Exterior Deck Stairs & Railing System', 'Deck Construction')">
+                            <div class="img-zoom-container aspect-[16/9] bg-charcoal mb-4 relative overflow-hidden">
+                                <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/510727553_3566749650123684_8728608778506380258_n.jpg" 
+                                     alt="Custom Deck Stairs Redmond Carpentry" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span class="px-4 py-2 border border-ivory text-xs uppercase tracking-widest text-ivory">Inspect View</span>
+                                </div>
+                            </div>
+                            <span class="text-[11px] uppercase tracking-[0.2em] text-bronze font-medium">Custom Carpentry</span>
+                            <h3 class="font-serif-title text-xl text-ivory group-hover:text-bronze transition-colors mt-1">Stairway & Precision Railing Integration</h3>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 04: SERVICES OVERVIEW -->
+            <section class="py-24 bg-charcoal border-t border-b border-white/5">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <div class="max-w-2xl mb-16">
+                        <span class="text-xs uppercase tracking-[0.3em] text-bronze font-semibold">Specializations</span>
+                        <h2 class="font-serif-title text-3xl sm:text-5xl text-ivory mt-2">Core Services</h2>
+                        <p class="text-ivory/60 text-sm mt-4 leading-relaxed font-light">
+                            We execute residential woodworking and structural remodeling projects across Fairfield County with craftsmanship tailored to your home’s architecture.
+                        </p>
+                    </div>
+
+                    <!-- Editorial Grid for Services -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        
+                        <!-- Service 1 -->
+                        <div class="bg-charcoal-light p-8 border border-white/5 hover:border-bronze/40 transition-all duration-300 flex flex-col justify-between group">
+                            <div>
+                                <div class="text-bronze font-cinzel text-xl font-bold mb-4">01</div>
+                                <h3 class="font-serif-title text-2xl text-ivory mb-3 group-hover:text-bronze transition-colors">Deck Construction</h3>
+                                <p class="text-ivory/70 text-xs leading-relaxed font-light mb-6">
+                                    Custom pressure-treated and composite decks, multi-level platforms, structural framing, exterior stairs, and custom railing systems engineered for durability.
+                                </p>
+                            </div>
+                            <button onclick="navigateTo('services')" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-bronze font-medium">Learn More <i class="fa-solid fa-chevron-right text-[10px]"></i></button>
+                        </div>
+
+                        <!-- Service 2 -->
+                        <div class="bg-charcoal-light p-8 border border-white/5 hover:border-bronze/40 transition-all duration-300 flex flex-col justify-between group">
+                            <div>
+                                <div class="text-bronze font-cinzel text-xl font-bold mb-4">02</div>
+                                <h3 class="font-serif-title text-2xl text-ivory mb-3 group-hover:text-bronze transition-colors">Kitchen Remodeling</h3>
+                                <p class="text-ivory/70 text-xs leading-relaxed font-light mb-6">
+                                    Thoughtful kitchen upgrades, cabinet framing, island modifications, trim installation, and refined custom woodwork to revitalize heart-of-the-home spaces.
+                                </p>
+                            </div>
+                            <button onclick="navigateTo('services')" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-bronze font-medium">Learn More <i class="fa-solid fa-chevron-right text-[10px]"></i></button>
+                        </div>
+
+                        <!-- Service 3 -->
+                        <div class="bg-charcoal-light p-8 border border-white/5 hover:border-bronze/40 transition-all duration-300 flex flex-col justify-between group">
+                            <div>
+                                <div class="text-bronze font-cinzel text-xl font-bold mb-4">03</div>
+                                <h3 class="font-serif-title text-2xl text-ivory mb-3 group-hover:text-bronze transition-colors">Bathroom Remodeling</h3>
+                                <p class="text-ivory/70 text-xs leading-relaxed font-light mb-6">
+                                    Complete interior carpentry for bathrooms, vanity frame fitting, accent trim work, ceiling linings, and moisture-resistant woodwork.
+                                </p>
+                            </div>
+                            <button onclick="navigateTo('services')" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-bronze font-medium">Learn More <i class="fa-solid fa-chevron-right text-[10px]"></i></button>
+                        </div>
+
+                        <!-- Service 4 -->
+                        <div class="bg-charcoal-light p-8 border border-white/5 hover:border-bronze/40 transition-all duration-300 flex flex-col justify-between group">
+                            <div>
+                                <div class="text-bronze font-cinzel text-xl font-bold mb-4">04</div>
+                                <h3 class="font-serif-title text-2xl text-ivory mb-3 group-hover:text-bronze transition-colors">Doors & Windows</h3>
+                                <p class="text-ivory/70 text-xs leading-relaxed font-light mb-6">
+                                    Precision exterior and interior door installations, window casing, energy-efficient frame setting, weatherization, and architectural trim integration.
+                                </p>
+                            </div>
+                            <button onclick="navigateTo('services')" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-bronze font-medium">Learn More <i class="fa-solid fa-chevron-right text-[10px]"></i></button>
+                        </div>
+
+                        <!-- Service 5 -->
+                        <div class="bg-charcoal-light p-8 border border-white/5 hover:border-bronze/40 transition-all duration-300 flex flex-col justify-between group">
+                            <div>
+                                <div class="text-bronze font-cinzel text-xl font-bold mb-4">05</div>
+                                <h3 class="font-serif-title text-2xl text-ivory mb-3 group-hover:text-bronze transition-colors">Interior Trim & Finish</h3>
+                                <p class="text-ivory/70 text-xs leading-relaxed font-light mb-6">
+                                    Crown molding, baseboard upgrades, wainscoting, door surrounds, coffered ceilings, and detailed architectural woodwork for elevated interiors.
+                                </p>
+                            </div>
+                            <button onclick="navigateTo('services')" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-bronze font-medium">Learn More <i class="fa-solid fa-chevron-right text-[10px]"></i></button>
+                        </div>
+
+                        <!-- Service 6 -->
+                        <div class="bg-charcoal-light p-8 border border-white/5 hover:border-bronze/40 transition-all duration-300 flex flex-col justify-between group">
+                            <div>
+                                <div class="text-bronze font-cinzel text-xl font-bold mb-4">06</div>
+                                <h3 class="font-serif-title text-2xl text-ivory mb-3 group-hover:text-bronze transition-colors">Custom Carpentry</h3>
+                                <p class="text-ivory/70 text-xs leading-relaxed font-light mb-6">
+                                    Tailored residential carpentry, structural modifications, specialized built-in elements, and customized home improvement solutions.
+                                </p>
+                            </div>
+                            <button onclick="navigateTo('services')" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-bronze font-medium">Learn More <i class="fa-solid fa-chevron-right text-[10px]"></i></button>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 05: CRAFTSMANSHIP STORYTELLING (PROCESS PIPELINE) -->
+            <section class="py-24 bg-charcoal-dark text-ivory">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-xs uppercase tracking-[0.3em] text-bronze font-semibold">The Craftsmanship Pipeline</span>
+                        <h2 class="font-serif-title text-3xl sm:text-5xl text-ivory mt-2">Material • Detail • Execution</h2>
+                        <p class="text-ivory/60 text-sm mt-4 font-light">From raw lumber selection to calibrated joints and final seal coatings.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        
+                        <div class="p-6 bg-charcoal border border-white/10 relative">
+                            <span class="text-xs font-mono text-bronze block mb-4">STEP 01</span>
+                            <div class="h-44 img-zoom-container mb-4">
+                                <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/508166415_3558691377596178_3541246282144471039_n.jpg" class="w-full h-full object-cover" alt="Framing step">
+                            </div>
+                            <h4 class="font-serif-title text-lg text-ivory mb-2">1. Structural Base</h4>
+                            <p class="text-xs text-ivory/60 leading-relaxed font-light">Ensuring level framing, code compliance, and structural foundation integrity.</p>
+                        </div>
+
+                        <div class="p-6 bg-charcoal border border-white/10 relative">
+                            <span class="text-xs font-mono text-bronze block mb-4">STEP 02</span>
+                            <div class="h-44 img-zoom-container mb-4">
+                                <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/583923975_1368934264934474_6959972689701284037_n.jpg" class="w-full h-full object-cover" alt="Joinery step">
+                            </div>
+                            <h4 class="font-serif-title text-lg text-ivory mb-2">2. Precision Fit</h4>
+                            <p class="text-xs text-ivory/60 leading-relaxed font-light">Exact measuring, tight miter joints, and uniform spacing across all boards.</p>
+                        </div>
+
+                        <div class="p-6 bg-charcoal border border-white/10 relative">
+                            <span class="text-xs font-mono text-bronze block mb-4">STEP 03</span>
+                            <div class="h-44 img-zoom-container mb-4">
+                                <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/504831416_3546674485464534_8886768388241948487_n.jpg" class="w-full h-full object-cover" alt="Trim step">
+                            </div>
+                            <h4 class="font-serif-title text-lg text-ivory mb-2">3. Surface Integration</h4>
+                            <p class="text-xs text-ivory/60 leading-relaxed font-light">Installing trim, custom facings, railings, and protective architectural caps.</p>
+                        </div>
+
+                        <div class="p-6 bg-charcoal border border-white/10 relative">
+                            <span class="text-xs font-mono text-bronze block mb-4">STEP 04</span>
+                            <div class="h-44 img-zoom-container mb-4">
+                                <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/511028971_3566749723457010_7430333833771573466_n.jpg" class="w-full h-full object-cover" alt="Finished step">
+                            </div>
+                            <h4 class="font-serif-title text-lg text-ivory mb-2">4. Final Polish</h4>
+                            <p class="text-xs text-ivory/60 leading-relaxed font-light">Comprehensive inspection, cleanup, and delivering a clean finished project.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 06: CONTACT CTA BANNER -->
+            <section class="py-20 bg-gradient-to-r from-charcoal-light via-charcoal to-charcoal-dark border-t border-b border-white/10">
+                <div class="max-w-5xl mx-auto px-4 text-center">
+                    <span class="text-xs uppercase tracking-[0.3em] text-bronze font-semibold">Start Your Project</span>
+                    <h2 class="font-serif-title text-4xl sm:text-5xl text-ivory mt-3 mb-6">Have A Project In Mind?</h2>
+                    <p class="text-ivory/70 text-sm max-w-xl mx-auto mb-8 font-light">
+                        Let's discuss your next home improvement, deck construction, or interior finish carpentry project in Monroe and surrounding Connecticut communities.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <button onclick="navigateTo('contact')" class="px-8 py-4 bg-bronze hover:bg-bronze-light text-charcoal-dark font-bold text-xs uppercase tracking-[0.2em] transition-all">
+                            Request An Estimate
+                        </button>
+                        <a href="tel:2039137331" class="px-8 py-4 border border-white/20 hover:border-bronze text-ivory text-xs uppercase tracking-[0.2em] transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-bronze"></i> Call 203-913-7331
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- =================================================================== -->
+        <!-- PAGE 2: SERVICES PAGE                                              -->
+        <!-- =================================================================== -->
+        <div id="page-services" class="page-view hidden pt-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                
+                <!-- Page Banner -->
+                <div class="border-b border-white/10 pb-12 mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-bronze font-semibold">Comprehensive Remodeling & Carpentry</span>
+                    <h1 class="font-serif-title text-4xl sm:text-6xl text-ivory mt-2">Our Services</h1>
+                    <p class="text-ivory/60 max-w-2xl text-sm sm:text-base mt-4 font-light">
+                        High-caliber residential craftsmanship for homes throughout Monroe, CT. Every project receives dedicated structural planning and finish quality.
+                    </p>
+                </div>
+
+                <!-- Service 1 Detail: Deck Construction -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-12 border-b border-white/10">
+                    <div class="lg:col-span-6 space-y-4">
+                        <div class="text-bronze font-cinzel text-sm font-bold tracking-widest">SERVICE 01</div>
+                        <h2 class="font-serif-title text-3xl sm:text-4xl text-ivory">Deck Construction & Exterior Living</h2>
+                        <p class="text-ivory/70 text-sm leading-relaxed font-light">
+                            We build durable outdoor decks customized for your landscape. From foundation footings and pressure-treated structural framing to composite decking, multi-tier platforms, custom perimeter benches, and code-compliant staircases.
+                        </p>
+                        <ul class="text-xs text-ivory/80 space-y-2 pt-2">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bronze"></i> Custom Deck Framing & Structural Footings</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bronze"></i> Pressure-Treated & Composite Decking Materials</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bronze"></i> Exterior Stairways & Railing Systems</li>
+                        </ul>
+                        <div class="pt-4">
+                            <button onclick="navigateTo('contact')" class="px-6 py-3 bg-bronze text-charcoal-dark font-bold text-xs uppercase tracking-widest">Get Deck Estimate</button>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                        <div class="img-zoom-container rounded-sm overflow-hidden h-64">
+                            <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/508147886_3556254854506497_1839905033559771886_n.jpg" class="w-full h-full object-cover" alt="Decking project photo 1">
+                        </div>
+                        <div class="img-zoom-container rounded-sm overflow-hidden h-64">
+                            <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/509579782_3563267883805194_1255040392412548200_n.jpg" class="w-full h-full object-cover" alt="Decking project photo 2">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2 Detail: Interior Trim & Doors/Windows -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-12 border-b border-white/10">
+                    <div class="lg:col-span-6 order-2 lg:order-1 grid grid-cols-2 gap-4">
+                        <div class="img-zoom-container rounded-sm overflow-hidden h-64">
+                            <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/509317718_3566749760123673_6227464479387910447_n.jpg" class="w-full h-full object-cover" alt="Interior Trim">
+                        </div>
+                        <div class="img-zoom-container rounded-sm overflow-hidden h-64">
+                            <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/507635666_3555154001283249_2583735017365206193_n.jpg" class="w-full h-full object-cover" alt="Window Framing">
+                        </div>
+                    </div>
+                    <div class="lg:col-span-6 order-1 lg:order-2 space-y-4">
+                        <div class="text-bronze font-cinzel text-sm font-bold tracking-widest">SERVICE 02 & 03</div>
+                        <h2 class="font-serif-title text-3xl sm:text-4xl text-ivory">Doors, Windows & Architectural Trim</h2>
+                        <p class="text-ivory/70 text-sm leading-relaxed font-light">
+                            Enhance your home's interior character and thermal envelope. We specialize in precision hanging of interior and exterior doors, window casing installation, baseboards, crown molding, and customized millwork.
+                        </p>
+                        <ul class="text-xs text-ivory/80 space-y-2 pt-2">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bronze"></i> Exterior & Interior Door Replacement</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bronze"></i> Precision Window Casing & Sill Installation</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bronze"></i> Custom Baseboards, Crown & Wall Trim</li>
+                        </ul>
+                        <div class="pt-4">
+                            <button onclick="navigateTo('contact')" class="px-6 py-3 bg-bronze text-charcoal-dark font-bold text-xs uppercase tracking-widest">Request Consultation</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 Detail: Kitchen & Bath Remodeling -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-12">
+                    <div class="lg:col-span-6 space-y-4">
+                        <div class="text-bronze font-cinzel text-sm font-bold tracking-widest">SERVICE 04 & 05</div>
+                        <h2 class="font-serif-title text-3xl sm:text-4xl text-ivory">Kitchen & Bathroom Remodeling</h2>
+                        <p class="text-ivory/70 text-sm leading-relaxed font-light">
+                            Transformative carpentry for residential kitchens and bathrooms. We manage structural alterations, cabinetry installation, island framing, vanity fittings, and specialized moisture-resistant interior wood accents.
+                        </p>
+                        <ul class="text-xs text-ivory/80 space-y-2 pt-2">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bronze"></i> Kitchen Cabinetry Fitting & Framing</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bronze"></i> Bathroom Vanity & Trim Integration</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bronze"></i> Full Spatial Remodeling Coordination</li>
+                        </ul>
+                        <div class="pt-4">
+                            <button onclick="navigateTo('contact')" class="px-6 py-3 bg-bronze text-charcoal-dark font-bold text-xs uppercase tracking-widest">Discuss Remodel</button>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                        <div class="img-zoom-container rounded-sm overflow-hidden h-64">
+                            <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/ben3ak_4-OlyarRqRRi2JSyLCF5Nmjj1VWRT3EYELaZv0MjtYWX3D7KXt37ADv67NqSe4tFg9tpuvjmj6IZ9puIjQHQT1Nh_2AkFqH7G5FnhaJqbP1kuDVif1SRQAgNQy5uzZPI7_EZtYmqemySzpQ9dgIk3u3s1mGinJKYLg3Bnsu_6T7C5hNuk1EP_2DmW.jpg" class="w-full h-full object-cover" alt="Kitchen Work">
+                        </div>
+                        <div class="img-zoom-container rounded-sm overflow-hidden h-64">
+                            <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/504199479_3542115072587142_8997265707873544850_n.jpg" class="w-full h-full object-cover" alt="Interior Remodel Detail">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- =================================================================== -->
+        <!-- PAGE 3: OUR WORK (PORTFOLIO GALLERY)                               -->
+        <!-- =================================================================== -->
+        <div id="page-work" class="page-view hidden pt-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                
+                <div class="border-b border-white/10 pb-8 mb-12 flex flex-col md:flex-row md:items-end justify-between">
+                    <div>
+                        <span class="text-xs uppercase tracking-[0.3em] text-bronze font-semibold">Project Archive</span>
+                        <h1 class="font-serif-title text-4xl sm:text-6xl text-ivory mt-2">Authentic Portfolio</h1>
+                        <p class="text-ivory/60 text-sm mt-2 font-light">Explore genuine photography of completed decks, interior finish carpentry, and remodeling projects in Connecticut.</p>
+                    </div>
+
+                    <!-- Category Filter Controls -->
+                    <div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="gallery-filters">
+                        <button onclick="filterGallery('all')" class="filter-btn active px-4 py-2 bg-bronze text-charcoal-dark text-xs uppercase font-semibold tracking-wider transition-colors">All (28)</button>
+                        <button onclick="filterGallery('decks')" class="filter-btn px-4 py-2 bg-charcoal-light text-ivory/70 hover:text-ivory text-xs uppercase font-semibold tracking-wider transition-colors">Decks & Outdoor</button>
+                        <button onclick="filterGallery('trim')" class="filter-btn px-4 py-2 bg-charcoal-light text-ivory/70 hover:text-ivory text-xs uppercase font-semibold tracking-wider transition-colors">Trim & Finish</button>
+                        <button onclick="filterGallery('doors')" class="filter-btn px-4 py-2 bg-charcoal-light text-ivory/70 hover:text-ivory text-xs uppercase font-semibold tracking-wider transition-colors">Doors & Windows</button>
+                        <button onclick="filterGallery('interiors')" class="filter-btn px-4 py-2 bg-charcoal-light text-ivory/70 hover:text-ivory text-xs uppercase font-semibold tracking-wider transition-colors">Interiors</button>
+                    </div>
+                </div>
+
+                <!-- Complete 28 Photo Gallery Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
+                    <!-- Populated via JavaScript dynamically with all 28 authentic supplied photographs -->
+                </div>
+
+            </div>
+        </div>
+
+        <!-- =================================================================== -->
+        <!-- PAGE 4: ABOUT PAGE                                                 -->
+        <!-- =================================================================== -->
+        <div id="page-about" class="page-view hidden pt-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+                    <div class="lg:col-span-6 space-y-6">
+                        <span class="text-xs uppercase tracking-[0.3em] text-bronze font-semibold">About Redmond Carpentry</span>
+                        <h1 class="font-serif-title text-4xl sm:text-6xl text-ivory">Building With Precision in Monroe, CT</h1>
+                        <p class="text-ivory/70 text-base leading-relaxed font-light">
+                            Redmond Carpentry, LLC is a specialized residential remodeling and carpentry firm serving homeowners throughout Monroe and Fairfield County, Connecticut.
+                        </p>
+                        <p class="text-ivory/70 text-sm leading-relaxed font-light">
+                            We believe that fine carpentry requires a combination of structural discipline, quality wood selection, clean joinery, and respect for the homeowner's living space. Whether constructed outdoors under changing weather conditions or inside an occupied home, our work is engineered for long-term stability and aesthetic beauty.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-6">
+                        <div class="img-zoom-container rounded-sm overflow-hidden shadow-2xl">
+                            <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/508166415_3558691377596178_3541246282144471039_n.jpg" alt="Craftsmanship Detail" class="w-full h-[440px] object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Values & Standards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 py-12 border-t border-white/10">
+                    <div class="bg-charcoal p-8 border border-white/5">
+                        <i class="fa-solid fa-ruler-combined text-2xl text-bronze mb-4"></i>
+                        <h3 class="font-serif-title text-xl text-ivory mb-2">Architectural Accuracy</h3>
+                        <p class="text-xs text-ivory/60 leading-relaxed font-light">Every cut, angle, and fastener is calculated for exact alignment and structural endurance.</p>
+                    </div>
+                    <div class="bg-charcoal p-8 border border-white/5">
+                        <i class="fa-solid fa-tree text-2xl text-bronze mb-4"></i>
+                        <h3 class="font-serif-title text-xl text-ivory mb-2">Material Integrity</h3>
+                        <p class="text-xs text-ivory/60 leading-relaxed font-light">We select lumber, fasteners, trim profiles, and finishes optimized for northern climate performance.</p>
+                    </div>
+                    <div class="bg-charcoal p-8 border border-white/5">
+                        <i class="fa-solid fa-handshake text-2xl text-bronze mb-4"></i>
+                        <h3 class="font-serif-title text-xl text-ivory mb-2">Direct Communication</h3>
+                        <p class="text-xs text-ivory/60 leading-relaxed font-light">Transparent project timelines, clear estimate breakdowns, and dedicated project updates.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- =================================================================== -->
+        <!-- PAGE 5: CONTACT & ESTIMATE REQUEST PAGE                            -->
+        <!-- =================================================================== -->
+        <div id="page-contact" class="page-view hidden pt-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Contact Details Sidebar -->
+                    <div class="lg:col-span-5 space-y-8">
+                        <div>
+                            <span class="text-xs uppercase tracking-[0.3em] text-bronze font-semibold">Get In Touch</span>
+                            <h1 class="font-serif-title text-4xl sm:text-5xl text-ivory mt-2">Request An Estimate</h1>
+                            <p class="text-ivory/60 text-sm mt-4 font-light leading-relaxed">
+                                Ready to start your remodeling project or need custom finish carpentry? Complete the request form or reach out directly by phone.
+                            </p>
+                        </div>
+
+                        <div class="space-y-6 pt-6 border-t border-white/10">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-charcoal-light border border-white/10 flex items-center justify-center text-bronze shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[11px] uppercase tracking-wider text-ivory/50">Direct Line</div>
+                                    <a href="tel:2039137331" class="text-lg font-semibold text-ivory hover:text-bronze transition-colors">+1 203-913-7331</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-charcoal-light border border-white/10 flex items-center justify-center text-bronze shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[11px] uppercase tracking-wider text-ivory/50">Primary Location</div>
+                                    <div class="text-base font-medium text-ivory">Monroe, Connecticut, USA</div>
+                                    <div class="text-xs text-ivory/60 mt-0.5">Serving Fairfield County & Surrounding Towns</div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-charcoal-light border border-white/10 flex items-center justify-center text-bronze shrink-0">
+                                    <i class="fa-solid fa-globe"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[11px] uppercase tracking-wider text-ivory/50">Domain Reference</div>
+                                    <div class="text-sm font-medium text-ivory">redmondcarpentry.com</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-6 bg-charcoal border border-white/10 rounded-sm">
+                            <div class="text-xs uppercase tracking-widest text-bronze font-semibold mb-2">Estimate Guarantee</div>
+                            <p class="text-xs text-ivory/70 leading-relaxed font-light">
+                                We review all incoming project descriptions within 24 business hours to arrange an on-site consultation or initial price estimate.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Estimate Form -->
+                    <div class="lg:col-span-7 bg-charcoal-light p-8 sm:p-10 border border-white/10">
+                        <h2 class="font-serif-title text-2xl text-ivory mb-6">Project Specifications</h2>
+                        
+                        <form id="estimate-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                            
+                            <!-- Project Category Selector -->
+                            <div>
+                                <label for="project-type" class="block text-xs uppercase tracking-wider text-ivory/70 mb-2">Project Category *</label>
+                                <select required id="project-type" class="w-full bg-charcoal border border-white/10 text-ivory text-xs p-3.5 focus:border-bronze focus:outline-none focus:ring-1 focus:ring-bronze">
+                                    <option value="">-- Select Category --</option>
+                                    <option value="deck">Deck Construction / Repair</option>
+                                    <option value="trim">Interior Trim & Finish Carpentry</option>
+                                    <option value="doors">Doors & Windows</option>
+                                    <option value="kitchen">Kitchen Remodeling</option>
+                                    <option value="bathroom">Bathroom Remodeling</option>
+                                    <option value="custom">Custom Carpentry / Other</option>
+                                </select>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="full-name" class="block text-xs uppercase tracking-wider text-ivory/70 mb-2">Full Name *</label>
+                                    <input id="full-name" type="text" required placeholder="John Doe" class="w-full bg-charcoal border border-white/10 text-ivory text-xs p-3.5 focus:border-bronze focus:outline-none focus:ring-1 focus:ring-bronze">
+                                </div>
+                                <div>
+                                    <label for="phone-num" class="block text-xs uppercase tracking-wider text-ivory/70 mb-2">Phone Number *</label>
+                                    <input id="phone-num" type="tel" required placeholder="(203) 555-0199" class="w-full bg-charcoal border border-white/10 text-ivory text-xs p-3.5 focus:border-bronze focus:outline-none focus:ring-1 focus:ring-bronze">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="email-addr" class="block text-xs uppercase tracking-wider text-ivory/70 mb-2">Email Address *</label>
+                                    <input id="email-addr" type="email" required placeholder="john@example.com" class="w-full bg-charcoal border border-white/10 text-ivory text-xs p-3.5 focus:border-bronze focus:outline-none focus:ring-1 focus:ring-bronze">
+                                </div>
+                                <div>
+                                    <label for="location-town" class="block text-xs uppercase tracking-wider text-ivory/70 mb-2">Project Location (Town) *</label>
+                                    <input id="location-town" type="text" required placeholder="Monroe, CT" class="w-full bg-charcoal border border-white/10 text-ivory text-xs p-3.5 focus:border-bronze focus:outline-none focus:ring-1 focus:ring-bronze">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="proj-desc" class="block text-xs uppercase tracking-wider text-ivory/70 mb-2">Project Details & Timeline *</label>
+                                <textarea id="proj-desc" required rows="5" placeholder="Please describe dimensions, desired materials, and estimated timeline..." class="w-full bg-charcoal border border-white/10 text-ivory text-xs p-3.5 focus:border-bronze focus:outline-none focus:ring-1 focus:ring-bronze"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 bg-bronze hover:bg-bronze-light text-charcoal-dark font-bold text-xs uppercase tracking-[0.2em] transition-colors">
+                                Submit Estimate Request
+                            </button>
+
+                            <div id="form-feedback" class="hidden p-4 bg-forest/40 border border-forest text-xs text-ivory text-center">
+                                Thank you! Your estimate request has been logged. We will contact you shortly at the provided telephone number.
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+
+    <!-- ========================================== -->
+    <!-- LIGHTBOX MODAL FOR FULL-SCREEN INSPECTION  -->
+    <!-- ========================================== -->
+    <div id="lightbox" class="fixed inset-0 z-50 hidden bg-charcoal-dark/95 backdrop-blur-md flex items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-ivory hover:text-bronze text-2xl p-2 z-10" aria-label="Close Lightbox">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-5xl w-full flex flex-col items-center animate-fadeIn">
+            <div class="max-h-[75vh] overflow-hidden mb-4 rounded-sm border border-white/10">
+                <img id="lightbox-img" src="" alt="Enlarged Project View" class="max-h-[75vh] w-auto object-contain">
+            </div>
+            <div class="text-center">
+                <span id="lightbox-category" class="text-[10px] uppercase tracking-[0.25em] text-bronze font-semibold"></span>
+                <h4 id="lightbox-title" class="font-serif-title text-xl text-ivory mt-1"></h4>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- PERSISTENT TIMED FLOATING CTA PANEL        -->
+    <!-- ========================================== -->
+    <div id="persistent-cta" class="fixed bottom-6 right-6 z-50 max-w-sm w-[calc(100%-3rem)] bg-charcoal-dark border border-bronze/40 p-6 shadow-2xl transition-all duration-700 transform translate-y-32 opacity-0 pointer-events-none hidden">
+        <!-- Close Button (Monitored by user session manual dismissal) -->
+        <button onclick="dismissPersistentCTA()" class="absolute top-3 right-3 text-ivory/60 hover:text-ivory transition-colors text-sm p-1.5 focus:outline-none" aria-label="Close Proposal Panel">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        
+        <div class="flex items-center gap-2 text-bronze mb-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-bronze animate-pulse"></span>
+            <span class="text-[10px] uppercase tracking-[0.25em] font-semibold">Redmond Carpentry, LLC</span>
+        </div>
+        
+        <h3 class="font-serif-title text-xl text-ivory mb-2 leading-tight">
+            Planning a Home Improvement Project?
+        </h3>
+        
+        <p class="text-xs text-ivory/70 font-light mb-5 leading-relaxed">
+            Let's discuss your next carpentry or remodeling project in Monroe & Fairfield County.
+        </p>
+        
+        <div class="space-y-2.5">
+            <button onclick="navigateTo('contact'); dismissPersistentCTA();" class="w-full py-3 bg-bronze hover:bg-bronze-light text-charcoal-dark font-bold text-xs uppercase tracking-[0.15em] transition-all text-center block shadow-md">
+                Request An Estimate
+            </button>
+            <a href="tel:2039137331" class="w-full py-2.5 border border-white/20 hover:border-bronze text-ivory text-xs uppercase tracking-[0.15em] transition-all flex items-center justify-center gap-2">
+                <i class="fa-solid fa-phone text-bronze text-[10px]"></i> Call 203-913-7331
+            </a>
+        </div>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- FOOTER                                     -->
+    <!-- ========================================== -->
+    <footer class="bg-charcoal-dark border-t border-white/10 py-16 text-ivory">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+                
+                <!-- Footer Brand Column -->
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 border border-ivory flex items-center justify-center">
+                            <span class="font-cinzel text-xs font-bold text-ivory">RC</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-cinzel text-base font-bold tracking-widest text-ivory">REDMOND</span>
+                            <span class="font-sans text-[8px] tracking-[0.3em] text-bronze uppercase">CARPENTRY, LLC</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-ivory/60 leading-relaxed font-light max-w-sm">
+                        High-quality residential remodeling, custom deck construction, exterior doors & windows, and interior finish trim in Monroe, Connecticut.
+                    </p>
+                    <div class="text-xs text-ivory/50">
+                        Phone: <a href="tel:2039137331" class="text-ivory hover:text-bronze">+1 203-913-7331</a>
+                    </div>
+                </div>
+
+                <!-- Footer Links -->
+                <div class="md:col-span-3 space-y-3">
+                    <h5 class="text-xs uppercase tracking-[0.2em] text-bronze font-semibold mb-4">Navigation</h5>
+                    <ul class="space-y-2 text-xs text-ivory/70">
+                        <li><button onclick="navigateTo('home')" class="hover:text-bronze transition-colors">Home</button></li>
+                        <li><button onclick="navigateTo('services')" class="hover:text-bronze transition-colors">Services Overview</button></li>
+                        <li><button onclick="navigateTo('work')" class="hover:text-bronze transition-colors">Authentic Work Portfolio</button></li>
+                        <li><button onclick="navigateTo('about')" class="hover:text-bronze transition-colors">About Our Craft</button></li>
+                        <li><button onclick="navigateTo('contact')" class="hover:text-bronze transition-colors">Request Estimate</button></li>
+                    </ul>
+                </div>
+
+                <!-- Footer Services -->
+                <div class="md:col-span-4 space-y-3">
+                    <h5 class="text-xs uppercase tracking-[0.2em] text-bronze font-semibold mb-4">Service Capabilities</h5>
+                    <ul class="space-y-2 text-xs text-ivory/70">
+                        <li>Deck Construction & Exterior Stairs</li>
+                        <li>Kitchen & Bathroom Remodeling</li>
+                        <li>Exterior Door & Window Casing</li>
+                        <li>Interior Architectural Trim & Molding</li>
+                        <li>Custom Woodworking & Structural Alterations</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-ivory/40">
+                <div>&copy; <span id="current-year"></span> Redmond Carpentry, LLC. All rights reserved. Monroe, CT.</div>
+                <div class="mt-4 sm:mt-0 font-mono text-[10px]">redmondcarpentry.com</div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT & GALLERY INVENTORY CONTROLLER  -->
+    <!-- ========================================== -->
+    <script>
+        // Set dynamic copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // -------------------------------------------------------------
+        // INVENTORY OF ALL 28 SUPPLIED AUTHENTIC PHOTOGRAPHS
+        // -------------------------------------------------------------
+        const photoInventory = [
+            { id: 1, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/508147886_3556254854506497_1839905033559771886_n.jpg', category: 'decks', title: 'Finished Pressure-Treated Deck Assembly', desc: 'Custom outdoor deck build with perimeter railings' },
+            { id: 2, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/509579782_3563267883805194_1255040392412548200_n.jpg', category: 'decks', title: 'Elevated Decking with Stair Assembly', desc: 'Multi-tiered outdoor deck frame and deck boards' },
+            { id: 3, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/508166415_3558691377596178_3541246282144471039_n.jpg', category: 'decks', title: 'Deck Joist Structural Framing', desc: 'Precision engineered deck sub-structure framing' },
+            { id: 4, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/510727553_3566749650123684_8728608778506380258_n.jpg', category: 'decks', title: 'Exterior Deck Stairs & Railings', desc: 'Custom built wooden exterior steps' },
+            { id: 5, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/583923975_1368934264934474_6959972689701284037_n.jpg', category: 'decks', title: 'Deck Corner & Board Joinery', desc: 'Detailed view of clean miters and corner posts' },
+            { id: 6, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/509317718_3566749760123673_6227464479387910447_n.jpg', category: 'trim', title: 'Interior Door & Trim Installation', desc: 'Architectural interior door casing and casing trim' },
+            { id: 7, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/507635666_3555154001283249_2583735017365206193_n.jpg', category: 'doors', title: 'Exterior Window & Siding Trim Integration', desc: 'Sealed window frame and exterior casing' },
+            { id: 8, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/ben3ak_4-OlyarRqRRi2JSyLCF5Nmjj1VWRT3EYELaZv0MjtYWX3D7KXt37ADv67NqSe4tFg9tpuvjmj6IZ9puIjQHQT1Nh_2AkFqH7G5FnhaJqbP1kuDVif1SRQAgNQy5uzZPI7_EZtYmqemySzpQ9dgIk3u3s1mGinJKYLg3Bnsu_6T7C5hNuk1EP_2DmW.jpg', category: 'interiors', title: 'Kitchen Remodel & Cabinetry Work', desc: 'Residential kitchen spatial remodeling detail' },
+            { id: 9, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/504199479_3542115072587142_8997265707873544850_n.jpg', category: 'interiors', title: 'Custom Interior Spatial Carpentry', desc: 'Wall framing and room partition work' },
+            { id: 10, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/511028971_3566749723457010_7430333833771573466_n.jpg', category: 'decks', title: 'Complete Backyard Deck Project', desc: 'Spacious ground-level deck with perimeter framing' },
+            { id: 11, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/508473731_3563267810471868_3323159401194597675_n.jpg', category: 'decks', title: 'Upper Deck Elevation Build', desc: 'Structural post support and deck rim joist' },
+            { id: 12, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/506458246_3556735661125083_7889053460913496693_n.jpg', category: 'doors', title: 'Entry Door Sill & Frame Work', desc: 'Solid door hanging and weather seal fitting' },
+            { id: 13, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/505425406_3546674488797867_9157291385301378199_n.jpg', category: 'trim', title: 'Interior Baseboard & Molding Detail', desc: 'Clean mitered baseboard installation' },
+            { id: 14, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/504831416_3546674485464534_8886768388241948487_n.jpg', category: 'trim', title: 'Custom Wood Wall Trim Accent', desc: 'Architectural interior wood wall detail' },
+            { id: 15, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/504022481_3541671105964872_7645268142162249654_n.jpg', category: 'interiors', title: 'Interior Framing & Structural Remodel', desc: 'Wall studs and doorway header preparation' },
+            { id: 16, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/503807018_3543639382434711_954278923743923628_n.jpg', category: 'interiors', title: 'Custom Ceiling & Beaming Work', desc: 'Interior ceiling woodwork framing' },
+            { id: 17, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/503662018_3562802377185078_5065783667538739936_n.jpg', category: 'decks', title: 'Deck Railing Spindle Fitting', desc: 'Precise vertical baluster spacing on deck' },
+            { id: 18, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/502554304_3562802630518386_8563258804243367275_n.jpg', category: 'decks', title: 'Composite Decking Surface Laydown', desc: 'Parallel board alignment and hidden fasteners' },
+            { id: 19, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/598687499_1388793006281933_5049487722019981244_n.jpg', category: 'trim', title: 'Fine Finish Wood Joinery', desc: 'Detailed close-up of custom wood joint work' },
+            { id: 20, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/598431325_1388792886281945_862153940608818556_n.jpg', category: 'trim', title: 'Precision Miter Cut Detail', desc: 'Craftsmanship close-up of tight-fitting corner trim' },
+            { id: 21, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/582592625_1368930354934865_5087459103204175415_n.jpg', category: 'decks', title: 'Outdoor Porch & Deck Decking', desc: 'Surface boards installed with even spacing' },
+            { id: 22, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/582255560_1368930261601541_2784543762228154990_n.jpg', category: 'decks', title: 'Deck Perimeter Border Detail', desc: 'Picture-frame board edging on custom deck' },
+            { id: 23, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/581869773_1368930281601539_8202568272334805644_n.jpg', category: 'decks', title: 'Deck Fascia Board Mounting', desc: 'Clean skirt fascia around deck joist edges' },
+            { id: 24, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/474111296_3392950364170281_6678801709492055811_n.jpg', category: 'doors', title: 'Custom Window Trim Replacement', desc: 'New architectural trim casing around window' },
+            { id: 25, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/643735771_1452371419924091_1335209819281274400_n.jpg', category: 'trim', title: 'Staircase Handrail Installation', desc: 'Wooden handrail mounted to finished staircase' },
+            { id: 26, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/73533115_1697660467032621_2224719632567107584_n.jpg', category: 'interiors', title: 'Residential Interior Remodeling', desc: 'Completed room carpentry and floor trim' },
+            { id: 27, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/32294160_1264628097002529_9021598227090112512_n.jpg', category: 'trim', title: 'Wood Finish & Sanding Process', desc: 'Material prep for custom interior wood trim' },
+            { id: 28, url: 'https://raw.githubusercontent.com/CreativeTugsDotCom/YXZ/refs/heads/main/305484589_606683337826241_6388004522497752162_n.jpg', category: 'doors', title: 'Interior Passage Door Alignment', desc: 'Hanging and plumbing of residential interior door' }
+        ];
+
+        // -------------------------------------------------------------
+        // RENDER GALLERY CARDS
+        // -------------------------------------------------------------
+        function renderGallery(items) {
+            const container = document.getElementById('portfolio-grid');
+            container.innerHTML = '';
+
+            items.forEach(photo => {
+                const card = document.createElement('div');
+                card.className = 'group cursor-pointer bg-charcoal border border-white/5 overflow-hidden transition-all duration-300 hover:border-bronze/50';
+                card.onclick = () => openLightbox(photo.url, photo.title, photo.category);
+
+                card.innerHTML = `
+                    <div class="img-zoom-container aspect-[4/3] bg-charcoal-light relative">
+                        <img src="${photo.url}" alt="${photo.title}" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4 text-center">
+                            <span class="px-3 py-1.5 border border-ivory text-[10px] uppercase tracking-widest text-ivory">Inspect Photograph</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-bronze font-semibold">${photo.category}</span>
+                        <h3 class="font-serif-title text-base text-ivory group-hover:text-bronze transition-colors mt-1">${photo.title}</h3>
+                        <p class="text-xs text-ivory/50 mt-1 font-light line-clamp-1">${photo.desc}</p>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function filterGallery(category) {
+            // Update button styles
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-bronze', 'text-charcoal-dark');
+                btn.classList.add('bg-charcoal-light', 'text-ivory/70');
+            });
+            event.target.classList.remove('bg-charcoal-light', 'text-ivory/70');
+            event.target.classList.add('bg-bronze', 'text-charcoal-dark');
+
+            if (category === 'all') {
+                renderGallery(photoInventory);
+            } else {
+                const filtered = photoInventory.filter(p => p.category === category);
+                renderGallery(filtered);
+            }
+        }
+
+        // Initialize full gallery on load
+        renderGallery(photoInventory);
+
+        // -------------------------------------------------------------
+        // SPA NAVIGATION CONTROLLER
+        // -------------------------------------------------------------
+        function navigateTo(pageId) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            const pages = document.querySelectorAll('.page-view');
+            pages.forEach(page => page.classList.add('hidden'));
+
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+            }
+
+            // Update active state in desktop header
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active', 'text-bronze');
+                if (link.id === 'nav-' + pageId) {
+                    link.classList.add('active', 'text-bronze');
+                }
+            });
+        }
+
+        // -------------------------------------------------------------
+        // MOBILE MENU CONTROLLER
+        // -------------------------------------------------------------
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // -------------------------------------------------------------
+        // LIGHTBOX CONTROLLER
+        // -------------------------------------------------------------
+        function openLightbox(url, title, category) {
+            document.getElementById('lightbox-img').src = url;
+            document.getElementById('lightbox-title').textContent = title;
+            document.getElementById('lightbox-category').textContent = category;
+            document.getElementById('lightbox').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+        }
+
+        // Close lightbox on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // -------------------------------------------------------------
+        // HEADER SCROLL EFFECT
+        // -------------------------------------------------------------
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('glass-dark', 'py-3');
+                header.classList.remove('py-5');
+            } else {
+                header.classList.remove('glass-dark', 'py-3');
+                header.classList.add('py-5');
+            }
+        });
+
+        // -------------------------------------------------------------
+        // FORM SUBMISSION FEEDBACK
+        // -------------------------------------------------------------
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const feedback = document.getElementById('form-feedback');
+            feedback.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => {
+                feedback.classList.add('hidden');
+            }, 6000);
+        }
+
+        // -------------------------------------------------------------
+        // PERSISTENT TIMED CTA (15-SECOND TRIGGER & INDEFINITE DISPLAY)
+        // -------------------------------------------------------------
+        function initPersistentCTA() {
+            // Check if visitor has already manually dismissed the CTA during this session
+            if (sessionStorage.getItem('redmond_cta_dismissed') === 'true') {
+                return;
+            }
+
+            // Trigger after exactly 15 seconds (15000 ms)
+            setTimeout(() => {
+                const ctaEl = document.getElementById('persistent-cta');
+                if (ctaEl && sessionStorage.getItem('redmond_cta_dismissed') !== 'true') {
+                    ctaEl.classList.remove('hidden');
+                    // Allow paint before starting transition
+                    setTimeout(() => {
+                        ctaEl.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
+                        ctaEl.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                    }, 50);
+                }
+            }, 15000);
+        }
+
+        function dismissPersistentCTA() {
+            const ctaEl = document.getElementById('persistent-cta');
+            if (ctaEl) {
+                ctaEl.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                ctaEl.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
+                setTimeout(() => {
+                    ctaEl.classList.add('hidden');
+                }, 700);
+            }
+            // Save state in session storage so it stays dismissed for the remainder of the browsing session
+            sessionStorage.setItem('redmond_cta_dismissed', 'true');
+        }
+
+        // Start 15-second timer on window load
+        window.addEventListener('load', () => {
+            initPersistentCTA();
+        });
+    </script>
+</body>
+</html>
